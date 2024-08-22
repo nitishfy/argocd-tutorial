@@ -1,16 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sealed-secrets
-  namespace: argocd
+  name: argocd-directory-application
+  annotations:
+    argocd.argoproj.io/sync-options: Delete=false
 spec:
   project: default
   source:
-    chart: sealed-secrets
-    repoURL: https://bitnami-labs.github.io/sealed-secrets
-    targetRevision: 1.16.1
-    helm:
-      releaseName: sealed-secrets
+    directory:
+      recurse: true
+    repoURL: https://github.com/nitishfy/argocd-tutorial
+    targetRevision: main
+    path: argocd-application/directoryOfManifest
   destination:
-    server: "https://kubernetes.default.svc"
-    namespace: default
+    server: https://kubernetes.default.svc
+    namespace: directory
