@@ -3,6 +3,8 @@ kind: Application
 metadata:
   name: my-application
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: ./prod
 spec:
   project: default
   source:
