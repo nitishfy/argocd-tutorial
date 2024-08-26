@@ -1,13 +1,13 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-4
+  name: app-3
 spec:
-  project: project-4
+  project: project-3
   source:
     repoURL: https://github.com/nitishfy/argocd-tutorial.git
     targetRevision: main
-    path: argocd-application/helm/nginx
+    path: argocd-application/directoryOfManifest
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: dev

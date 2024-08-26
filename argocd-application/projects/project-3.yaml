@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: project-3
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceBlacklist:
+  - group: 'apps'  
+    kind: 'Deployment'  
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
