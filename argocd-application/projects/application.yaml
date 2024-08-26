@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-application
+  namespace: argocd
+spec:
+  project: default
+  source:
+    directory:
+      recurse: true
+    repoURL: https://github.com/nitishfy/argocd-tutorial.git
+    path: argocd-application/monorepo-annotation/manifests
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
