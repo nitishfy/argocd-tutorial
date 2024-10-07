@@ -1,6 +1,7 @@
 apiVersion: monitoring.googleapis.com/v1
 kind: Rules
 metadata:
+  name: rule1
   namespace: directory
 spec:
   conditions:
