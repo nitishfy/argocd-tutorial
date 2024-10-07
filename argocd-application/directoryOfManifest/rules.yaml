@@ -1,7 +1,6 @@
 apiVersion: monitoring.googleapis.com/v1
 kind: Rules
 metadata:
-  name: high-cpu-usage-rules
   namespace: directory
 spec:
   conditions:
