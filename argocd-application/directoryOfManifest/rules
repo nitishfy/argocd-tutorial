@@ -1,0 +1,13 @@
+apiVersion: monitoring.googleapis.com/v1
+kind: Rules
+metadata:
+  name: high-cpu-usage-rules
+  namespace: directory
+spec:
+  conditions:
+    - displayName: "High CPU Usage Alert"
+      conditionThreshold:
+        filter: "metric.type=\"compute.googleapis.com/instance/cpu/utilization\""
+        comparison: "COMPARISON_GT"
+        thresholdValue: 0.8
+        duration: "60s"
